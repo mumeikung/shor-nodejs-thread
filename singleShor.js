@@ -9,23 +9,32 @@ const gcd = (a, b) => {
   return r1
 }
 
-const powerMod = (base, pow, mod) => {
-  let output = base
-  for (let i = 1; i < pow; i++) output = (output * base) % mod
-  return output
+const startStep = (base) => {
+  const okBit = 52 - base.toString(2).length
+  let step = Math.pow(2, okBit)
+  while (base < step) step /= 2
+  return step
 }
 
 const findPeriod = (a, N) => {
-  let r = 2
-  let base = powerMod(a, r, N)
-  while (base !== 1) {
+  const stepStart = startStep(a)
+  let r = 0
+  let out = 1
+  while (r < 10) {
     r += 2
-    if (r > 10) return -1
-    base = (base * a) % N
-    base = (base * a) % N
+    for (let i = 0; i < 2; i++) {
+      const start = out
+      let step = stepStart
+      let count = a - 1
+      while (count > 0) {
+        while (count < step) step /= 2
+        out = (out + (start * step)) % N
+        count -= step
+      }
+    }
+    if (out === 1) return r
   }
-  if (powerMod(a, r / 2, N) === -1) r = -1
-  return r
+  return -1
 }
 
 const findAR = (a, N, stop) => {

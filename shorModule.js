@@ -9,7 +9,7 @@ const multiShor = (N = 1, thread = 2) => {
 
   return new Promise((resolve, reject) => {
 
-    if (N >= Math.pow(2, 30)) return reject(new Error('Limit N must < 2^30 (2^15 x 2^15 = 2^30)'))
+    // if (N >= Math.pow(2, 30)) return reject(new Error('Limit N must < 2^30 (2^15 x 2^15 = 2^30)'))
 
     for (let i = 0; i < thread; i++) {
       process[i] = fork('./singleShor.js')

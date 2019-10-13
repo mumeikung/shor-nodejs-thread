@@ -7,7 +7,7 @@ function help () {
   console.log('CPE393 Quantum - Shor\'s Algorithm Help')
   console.log('')
   console.log('Usage: node ./ [n] [i]')
-  console.log('  n -- p x q ; p and q is prime number ; n must < 2^30')
+  console.log('  n -- p x q ; p and q is prime number')
   console.log('  i -- number of thread (default: 4)')
   console.log('')
   return 0
