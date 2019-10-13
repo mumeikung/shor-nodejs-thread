@@ -8,7 +8,7 @@ function help () {
   console.log('')
   console.log('Usage: node ./ [n] [i]')
   console.log('  n -- p x q ; p and q is prime number')
-  console.log('  i -- number of thread (default: 4)')
+  console.log('  i -- number of process (default: 4)')
   console.log('')
   return 0
 }
@@ -32,8 +32,8 @@ const displayDatetime = (datetime = Date.now()) => {
 }
 /* Datetime Display Function */
 
-const run = async (N, thread) => {
-  console.log(`Shor's Algorithm with N = ${N} (${thread} thread)`)
+const run = async (N, processA) => {
+  console.log(`Shor's Algorithm with N = ${N} (${processA} process)`)
   console.log('')
 
   const startDatetime = Date.now()
@@ -41,7 +41,7 @@ const run = async (N, thread) => {
 
   let result = 0
   try {
-    result = await Shor(N, thread)
+    result = await Shor(N, processA)
   } catch (error) {
     console.error('Error:', error.message)
   }
@@ -57,7 +57,7 @@ const run = async (N, thread) => {
     console.log('')
     console.log('No solution :(')
     console.log('')
-    console.log(`Average time spent per thread = ${result.toFixed(2)} ms`)
+    console.log(`Average time spent per processA = ${result.toFixed(2)} ms`)
   } else {
     console.log(`N = ${N}, a = ${result.a}, r = ${result.r}`)
     console.log('')
@@ -65,7 +65,7 @@ const run = async (N, thread) => {
     console.log(`p = ${result.p}`)
     console.log(`q = ${result.q}`)
     console.log('')
-    console.log(`Thread time spent = ${result.ms} ms`)
+    console.log(`Process time spent = ${result.ms} ms`)
   }
   
   const diffMillisecs = endDatetime - startDatetime
@@ -84,17 +84,17 @@ const run = async (N, thread) => {
 
 /* MAIN FUNCTION */
 try {
-  let thread = 4
+  let processA = 4
   const N = parseInt(process.argv[2])
   if (process.argv[3]) {
-    thread = parseInt(process.argv[3])
-    if (isNaN(thread)) thread = 4
+    processA = parseInt(process.argv[3])
+    if (isNaN(processA)) processA = 4
   }
   if (isNaN(N)) {
     console.error('   Invalid n value')
     return help()
   }
-  return run(N, thread)
+  return run(N, processA)
 } catch (error) {
   console.error('Error:', error.message)
   return help()

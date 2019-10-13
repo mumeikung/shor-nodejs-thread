@@ -1,11 +1,11 @@
 # How to run this code
 1. Install Node.js v10 or above.
 2. Go to this path by rerminal.
-3. Run command `node ./ [Number N] [Thread Amount]`
+3. Run command `node ./ [Number N] [Process Amount]`
 
 # Files
 - index.js => Main function and display
-- shorModule.js => Split thread to brute force and return to Main function
+- shorModule.js => Split process to brute force and return to Main function
 - singleShor.js => Shor's Algorithm code
 
 # Test Number
