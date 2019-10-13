@@ -20,9 +20,9 @@ const findPeriod = (a, N) => {
   let base = powerMod(a, r, N)
   while (base !== 1) {
     r += 2
-    base = (base * a) % N
-    base = (base * a) % N
     if (r > 10) return -1
+    base = (base * a) % N
+    base = (base * a) % N
   }
   if (powerMod(a, r / 2, N) === -1) r = -1
   return r
