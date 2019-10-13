@@ -1,7 +1,7 @@
 # How to run this code
 1. Install Node.js v10 or above.
 2. Go to this path by rerminal.
-3. Run command "node ./ [Number N] [Thread Amount]".
+3. Run command `node ./ [Number N] [Thread Amount]` (Thread amount is defualt 4)
 
 # Test Number
 - 5 x 7 = 35
