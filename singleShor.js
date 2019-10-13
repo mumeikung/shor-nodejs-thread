@@ -22,6 +22,10 @@ const findPeriod = (a, N) => {
   let out = 1
   while (r < 10) {
     r += 2
+    if (r === 4 && a > 67108864) break
+    else if (r === 6 && a > 165140) break
+    else if (r === 8 && a > 8192) break
+    else if (r === 10 && a > 1351) break
     for (let i = 0; i < 2; i++) {
       const start = out
       let step = stepStart
@@ -48,8 +52,9 @@ const findAR = (a, N, stop) => {
 }
 
 const findPQ = (a, r, N) => {
-  const p = gcd((Math.pow(a, (r / 2)) - 1), N)
-  const q = gcd((Math.pow(a, (r / 2)) + 1), N)
+  const power = Math.pow(a, (r / 2))
+  const p = gcd(power - 1, N)
+  const q = gcd(power + 1, N)
   if (p > 1 && q > 1 && p * q === N) return [p, q]
   return null
 }
