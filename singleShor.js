@@ -11,16 +11,17 @@ const gcd = (a, b) => {
 
 const powerMod = (base, pow, mod) => {
   let output = base
-  for (let i = (pow % 2 === 0 ? 1 : 0); i < pow; i += 2) output = (output * base * base) % mod
+  for (let i = 1; i < pow; i++) output = (output * base) % mod
   return output
 }
 
 const findPeriod = (a, N) => {
   let r = 2
-  let base = Math.pow(a, r) %  N
+  let base = powerMod(a, r, N)
   while (base !== 1) {
     r += 2
-    base = (base * a * a) % N
+    base = (base * a) % N
+    base = (base * a) % N
     if (r > 10) return -1
   }
   if (powerMod(a, r / 2, N) === -1) r = -1
