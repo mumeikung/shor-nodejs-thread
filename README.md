@@ -1,7 +1,7 @@
 # How to run this code
-1. Install Node.js v10 or above
-2. Go to this path by Terminal
-3. run command "node ./ [Number N] [Thread Amount]"
+1. Install Node.js v10 or above.
+2. Go to this path by rerminal.
+3. Run command "node ./ [Number N] [Thread Amount]".
 
 # Test Number
 - 5 x 7 = 35
@@ -20,6 +20,6 @@
 - `node ./ 341208619`
 
 # File
-- index.js => Main Function and Display
-- shorModule.js => Split thread to brute force and Return to Main Function
-- singleShor.js => Shor's Algorithm Code
+- index.js => Main function and display
+- shorModule.js => Split thread to brute force and return to Main function
+- singleShor.js => Shor's Algorithm code
